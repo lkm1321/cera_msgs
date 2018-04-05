@@ -1,0 +1,9 @@
+<launch>
+	
+	<node pkg="cera_msgs" type="msg_test" name="msg_test">
+		<remap from="plan_sub" to="/plan" />
+	</node>
+
+	<node name="record" pkg="rosbag" type="record" args="-a -O $(find cera_msgs)/test.bag"/>
+
+</launch>
