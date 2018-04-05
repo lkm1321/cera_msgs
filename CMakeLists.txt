@@ -48,11 +48,10 @@ find_package(catkin REQUIRED COMPONENTS
 ##   * add every package in MSG_DEP_SET to generate_messages(DEPENDENCIES ...)
 
 ## Generate messages in the 'msg' folder
- add_message_files(
-   FILES
-#   Message1.msg
-#   Message2.msg
+ add_message_files(FILES
 PoseStampedArray.msg
+Target.msg
+TargetArray.msg
  )
 
 
@@ -93,11 +92,11 @@ PoseStampedArray.msg
 ## CATKIN_DEPENDS: catkin_packages dependent projects also need
 ## DEPENDS: system dependencies of this project that dependent projects also need
 catkin_package(
+   INCLUDE_DIRS ${catkin_INCLUDE_DIRS} # This should export geometry_msgs as well. 
    CATKIN_DEPENDS roscpp std_msgs geometry_msgs message_runtime
 )
 
 include_directories(
-	include
 	${catkin_INCLUDE_DIRS}
 )
 
